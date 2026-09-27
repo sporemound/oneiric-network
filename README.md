@@ -59,7 +59,3 @@ Validation performs no network requests. Installation needs package access once.
 - Retain misses, controls, nulls and contradictions.
 - Never infer paranormal certainty from similarity or subjective resonance.
 - No real dream reports, credentials, private keys or recovery files in Git.
-
-The project is intended to be open source. License selection is pending; this
-initial repository does not yet grant an open-source license. Participant data
-licensing and publication consent will be separate from the code license.
