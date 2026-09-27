@@ -1,0 +1,128 @@
+{
+  "format": "oneiric-network-bundle",
+  "schema_version": "0.1.0",
+  "exported_at": "2026-09-27T07:00:00Z",
+  "scope": "public",
+  "events": [
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "00000000-0000-4000-8000-000000000002",
+        "author_id": "00000000-0000-4000-8000-000000000001",
+        "created_at": "2026-09-27T07:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "00000000-0000-4000-8000-000000000001",
+          "handle": "example-presence"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "00000000-0000-4000-8000-000000000003",
+        "author_id": "00000000-0000-4000-8000-000000000001",
+        "created_at": "2026-09-27T07:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "Synthetic example: a blue staircase descended toward a dry indoor harbor.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "00000000-0000-4000-8000-000000000004",
+        "author_id": "00000000-0000-4000-8000-000000000001",
+        "created_at": "2026-09-27T07:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "00000000-0000-4000-8000-000000000003",
+            "relation": "annotates"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "annotation",
+        "data": {
+          "subject_event_id": "00000000-0000-4000-8000-000000000003",
+          "layer": "interpretation",
+          "text": "Synthetic later interpretation: harbor may refer to a remembered film.",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "00000000-0000-4000-8000-000000000005",
+        "author_id": "00000000-0000-4000-8000-000000000001",
+        "created_at": "2026-09-27T07:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place",
+        "data": {
+          "place_id": "00000000-0000-4000-8000-000000000013",
+          "name": "Dry harbor",
+          "class": "emergent",
+          "description": "Provisional synthetic hypothesis, not an established shared place."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "00000000-0000-4000-8000-000000000006",
+        "author_id": "00000000-0000-4000-8000-000000000001",
+        "created_at": "2026-09-27T07:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "00000000-0000-4000-8000-000000000013",
+          "source_event_id": "00000000-0000-4000-8000-000000000003",
+          "dimension": "architecture",
+          "value": "Blue staircase",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "00000000-0000-4000-8000-000000000007",
+        "author_id": "00000000-0000-4000-8000-000000000001",
+        "created_at": "2026-09-27T07:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "00000000-0000-4000-8000-000000000013",
+          "source_event_id": "00000000-0000-4000-8000-000000000003",
+          "dimension": "architecture",
+          "value": "No tower reported",
+          "stance": "uncertain",
+          "exposure": "unknown"
+        }
+      }
+    }
+  ],
+  "omitted_event_ids": []
+}

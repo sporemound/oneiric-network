@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:oneiric-network:bundle:0.1.0",
+  "title": "Portable event bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "oneiric-network-bundle"
+    },
+    "schema_version": {
+      "const": "0.1.0"
+    },
+    "exported_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "scope": {
+      "enum": [
+        "public",
+        "owner_encrypted"
+      ]
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:oneiric-network:event:0.1.0"
+      },
+      "minItems": 0
+    },
+    "omitted_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "format",
+    "schema_version",
+    "exported_at",
+    "scope",
+    "events",
+    "omitted_event_ids"
+  ]
+}

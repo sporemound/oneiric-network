@@ -1,0 +1,1075 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:oneiric-network:event:0.1.0",
+  "title": "Oneiric Network event v0.1.0 (draft)",
+  "$ref": "#/$defs/event",
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "relation": {
+          "enum": [
+            "annotates",
+            "corrects",
+            "supersedes",
+            "supports",
+            "contradicts",
+            "derived_from",
+            "locks",
+            "reveals",
+            "evaluates",
+            "withdraws"
+          ]
+        }
+      },
+      "required": [
+        "event_id",
+        "relation"
+      ]
+    },
+    "sleep_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "end": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "precision": {
+          "enum": [
+            "estimated",
+            "recorded"
+          ]
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "timezone",
+        "precision"
+      ]
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "Ed25519"
+        },
+        "key_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "public_key": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{43}$"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{86}$"
+        }
+      },
+      "required": [
+        "algorithm",
+        "key_id",
+        "public_key",
+        "value"
+      ]
+    },
+    "attestations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content_digest": {
+          "$ref": "#/$defs/digest"
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/signature"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "content_digest",
+        "signatures"
+      ]
+    },
+    "dream": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100000
+        },
+        "language": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "sleep_window": {
+          "$ref": "#/$defs/sleep_window"
+        },
+        "session_id": {
+          "$ref": "#/$defs/uuid"
+        }
+      },
+      "required": [
+        "text",
+        "language"
+      ]
+    },
+    "annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject_event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "layer": {
+          "enum": [
+            "interpretation",
+            "recollection",
+            "correction",
+            "machine_extraction",
+            "public_annotation"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100000
+        },
+        "exposure": {
+          "enum": [
+            "before_reveal",
+            "after_reveal",
+            "unknown"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "subject_event_id",
+        "layer",
+        "text",
+        "exposure"
+      ]
+    },
+    "place": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "place_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "class": {
+          "enum": [
+            "real",
+            "fictional",
+            "imagined",
+            "emergent"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "referents": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "place_id",
+        "name",
+        "class",
+        "description"
+      ]
+    },
+    "place_observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "place_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "source_event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "dimension": {
+          "enum": [
+            "architecture",
+            "biome",
+            "light",
+            "weather",
+            "topology",
+            "inhabitants",
+            "sound",
+            "objects",
+            "emotional_valence",
+            "pathways",
+            "recurrence"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "stance": {
+          "enum": [
+            "supports",
+            "contradicts",
+            "uncertain"
+          ]
+        },
+        "exposure": {
+          "enum": [
+            "before_reveal",
+            "after_reveal",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "place_id",
+        "source_event_id",
+        "dimension",
+        "value",
+        "stance",
+        "exposure"
+      ]
+    },
+    "motif_observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "origin": {
+          "enum": [
+            "participant",
+            "human_coder",
+            "machine"
+          ]
+        },
+        "exposure": {
+          "enum": [
+            "before_reveal",
+            "after_reveal",
+            "unknown"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "span": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "end": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "unit": {
+              "const": "unicode_code_points"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "unit"
+          ]
+        }
+      },
+      "required": [
+        "source_event_id",
+        "label",
+        "origin",
+        "exposure",
+        "method"
+      ]
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "protocol": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000
+        },
+        "recording_opens_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "lock_deadline": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "reveal_not_before": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "minItems": 1
+        },
+        "scoring_plan": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "target_pool_commitment": {
+          "$ref": "#/$defs/digest"
+        },
+        "allocation_plan": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "stopping_rule": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "control_plan": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "blinding_plan": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        }
+      },
+      "required": [
+        "session_id",
+        "protocol",
+        "recording_opens_at",
+        "lock_deadline",
+        "reveal_not_before",
+        "conditions",
+        "scoring_plan",
+        "target_pool_commitment",
+        "allocation_plan",
+        "stopping_rule",
+        "control_plan",
+        "blinding_plan"
+      ]
+    },
+    "commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "subject": {
+          "enum": [
+            "dream",
+            "target",
+            "target_pool"
+          ]
+        },
+        "scheme": {
+          "const": "oneiric-commitment-v0.1-jcs-sha256"
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "required": [
+        "session_id",
+        "subject",
+        "scheme",
+        "digest"
+      ]
+    },
+    "lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "dream_commitment_event_id": {
+          "$ref": "#/$defs/uuid"
+        }
+      },
+      "required": [
+        "session_id",
+        "dream_commitment_event_id"
+      ]
+    },
+    "opening": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "dream",
+            "target",
+            "target_pool"
+          ]
+        },
+        "nonce": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{43}$"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/dream"
+            },
+            {
+              "$ref": "#/$defs/target"
+            },
+            {
+              "$ref": "#/$defs/target_pool"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "nonce",
+        "value"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "dream"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/dream"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "target"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/target"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "target_pool"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/target_pool"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "class": {
+          "enum": [
+            "real_place",
+            "fictional_environment",
+            "generated_environment",
+            "image",
+            "phrase",
+            "object",
+            "concealed_real_world"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000
+        },
+        "asset_digests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/digest"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "target_id",
+        "class",
+        "description"
+      ]
+    },
+    "target_pool": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/target"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "targets"
+      ]
+    },
+    "reveal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "commitment_event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "opening": {
+          "$ref": "#/$defs/opening"
+        }
+      },
+      "required": [
+        "session_id",
+        "commitment_event_id",
+        "opening"
+      ]
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "dream_event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "target_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "role": {
+          "enum": [
+            "intended",
+            "decoy",
+            "control"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "match",
+            "miss",
+            "ambiguous",
+            "null"
+          ]
+        },
+        "axis": {
+          "enum": [
+            "descriptive_convergence",
+            "experimental_evidence",
+            "subjective_resonance",
+            "base_rate_rarity"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        },
+        "value": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "exposure": {
+          "enum": [
+            "blinded",
+            "unblinded",
+            "unknown"
+          ]
+        },
+        "baseline": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        }
+      },
+      "required": [
+        "session_id",
+        "dream_event_id",
+        "target_id",
+        "role",
+        "outcome",
+        "axis",
+        "method",
+        "exposure"
+      ]
+    },
+    "withdrawal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "subject_event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "subject_event_id"
+      ]
+    },
+    "encrypted": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "const": "A256GCM"
+        },
+        "key_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "iv": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{16}$"
+        },
+        "ciphertext": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "maxLength": 2097152
+        },
+        "plaintext_schema": {
+          "const": "urn:oneiric-network:payload:0.1.0"
+        }
+      },
+      "required": [
+        "algorithm",
+        "key_id",
+        "iv",
+        "ciphertext",
+        "plaintext_schema"
+      ]
+    },
+    "presence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "participant_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "handle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "participant_id",
+        "handle"
+      ]
+    },
+    "payload": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "presence"
+            },
+            "data": {
+              "$ref": "#/$defs/presence"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "dream"
+            },
+            "data": {
+              "$ref": "#/$defs/dream"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "annotation"
+            },
+            "data": {
+              "$ref": "#/$defs/annotation"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "place"
+            },
+            "data": {
+              "$ref": "#/$defs/place"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "place_observation"
+            },
+            "data": {
+              "$ref": "#/$defs/place_observation"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "motif_observation"
+            },
+            "data": {
+              "$ref": "#/$defs/motif_observation"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "session"
+            },
+            "data": {
+              "$ref": "#/$defs/session"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "commitment"
+            },
+            "data": {
+              "$ref": "#/$defs/commitment"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "lock"
+            },
+            "data": {
+              "$ref": "#/$defs/lock"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "reveal"
+            },
+            "data": {
+              "$ref": "#/$defs/reveal"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "evaluation"
+            },
+            "data": {
+              "$ref": "#/$defs/evaluation"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "withdrawal"
+            },
+            "data": {
+              "$ref": "#/$defs/withdrawal"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        }
+      ]
+    },
+    "wire_payload": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/payload"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "encrypted"
+            },
+            "data": {
+              "$ref": "#/$defs/encrypted"
+            }
+          },
+          "required": [
+            "kind",
+            "data"
+          ]
+        }
+      ]
+    },
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "0.1.0"
+        },
+        "event_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "author_id": {
+          "$ref": "#/$defs/uuid"
+        },
+        "created_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "visibility": {
+          "enum": [
+            "private",
+            "embargoed",
+            "public"
+          ]
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "author_id",
+        "created_at",
+        "visibility",
+        "references"
+      ]
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "header": {
+          "$ref": "#/$defs/header"
+        },
+        "payload": {
+          "$ref": "#/$defs/wire_payload"
+        },
+        "attestations": {
+          "$ref": "#/$defs/attestations"
+        }
+      },
+      "required": [
+        "header",
+        "payload"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "header": {
+                "properties": {
+                  "visibility": {
+                    "enum": [
+                      "private",
+                      "embargoed"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "properties": {
+                  "kind": {
+                    "const": "encrypted"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
