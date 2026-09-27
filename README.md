@@ -54,7 +54,6 @@ Validation performs no network requests. Installation needs package access once.
 
 ## Constraints
 
-- No Uniflora or Discord dependency.
 - Hard $0 developer budget; no paid services, hosted CI, or deployment configured.
 - Keep raw reports, interpretations, target comparisons and personal meaning separate.
 - Retain misses, controls, nulls and contradictions.
