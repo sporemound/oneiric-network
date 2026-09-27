@@ -1,0 +1,7 @@
+{
+  "name": "oneiric-network",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {"test": "node --test tests/*.mjs", "build": "python tools/build_demo.py && python tools/build_notebook.py"},
+  "devDependencies": {"fake-indexeddb": "6.0.0", "jsdom": "26.1.0"}
+}

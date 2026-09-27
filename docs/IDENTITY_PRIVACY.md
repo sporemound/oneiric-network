@@ -18,8 +18,10 @@ authentication credentials. Portable signing identity and an explicit authentica
 re-enrollment process are required. Recovery design must support revocation and
 key rotation without silently changing historical authorship.
 
-This milestone includes no key generation, passkey implementation or usable
-recovery archive. Do not accept real participant secrets yet. Handle-only presence
+The notebook recovery rehearsal now provides an encrypted archive of private
+records and a UUID identity; see `RECOVERY_REHEARSAL.md`. It does not yet include
+portable signing-key generation, passkey implementation or authenticated identity
+recovery. Do not accept real participant secrets yet. Handle-only presence
 records and synthetic examples are not accounts.
 
 ## Initial threat model

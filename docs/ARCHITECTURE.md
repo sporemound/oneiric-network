@@ -1,6 +1,7 @@
 # Architecture decision 001 — portable events first
 
-Status: proposed v0.1 foundation; no hosting vendor selected.
+Status: v0.1 foundation, synthetic Network/Atlas and local encrypted notebook
+recovery rehearsal implemented; no hosting vendor selected.
 
 The event contract owns data meaning. Storage adapters own persistence; neither
 database row IDs nor hostname-dependent URLs are participant or event identity.
@@ -13,7 +14,7 @@ Planned boundaries:
 | `tools/`, `tests/` (implemented) | Offline validation and failure cases |
 | Future `packages/protocol/` | Validated types, canonicalization, cryptography, imports |
 | Future `packages/projections/` | Rebuildable Network / Atlas / Lab views |
-| Future `apps/web/` | Static-first Vite/TypeScript interface |
+| `apps/web/` (prototype) | Static Network/Atlas, encrypted notebook and snapshot reader; proposed Vite/TypeScript migration remains deferred |
 | Future `adapters/` | Local persistence, optional server and database integrations |
 
 Do not create placeholder services or divide the initial app into microservices.

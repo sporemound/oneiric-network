@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:oneiric-network:notebook-backup:1",
+  "title": "Encrypted notebook backup v1",
+  "description": "Shape validation only. Canonical base64url decoding, size limits, AES-GCM authentication and plaintext validation are implemented by vault.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "oneiric-notebook-backup"
+    },
+    "version": {
+      "const": 1
+    },
+    "kdf": {
+      "const": "PBKDF2-SHA256-600000"
+    },
+    "cipher": {
+      "const": "AES-256-GCM"
+    },
+    "salt": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{22}$"
+    },
+    "iv": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{16}$"
+    },
+    "ciphertext": {
+      "type": "string",
+      "minLength": 22,
+      "maxLength": 8388608,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "kdf",
+    "cipher",
+    "salt",
+    "iv",
+    "ciphertext"
+  ]
+}

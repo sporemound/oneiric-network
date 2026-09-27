@@ -1,0 +1,194 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-oTEJd3iOnmVhlcNSqt/b+9WCzwi4I19qTNOHGrpOqnc='; style-src 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'; object-src 'none'"><meta name="color-scheme" content="dark"><title>Oneiric Network — private notebook</title><style>:root{font:16px/1.6 system-ui,sans-serif;background:#0b1418;color:#e7eeea;color-scheme:dark;--muted:#a9c0c1;--border:#344a50;--panel:#122127;--accent:#a7ddd2}*{box-sizing:border-box}body{margin:0}header{padding:22px 5vw;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}.brand{letter-spacing:.12em;font-size:.85rem}.badge,.eyebrow{font-size:.75rem;letter-spacing:.08em;color:var(--muted)}main{max-width:1100px;padding:35px 5vw;margin:auto}h1{font:400 clamp(2.3rem,5vw,3.7rem)/1.15 Georgia,serif;margin:12px 0}h2{font:400 1.7rem/1.3 Georgia,serif;margin-top:0}h3{font-size:1rem}.eyebrow{text-transform:uppercase}.lede{font-size:1.2rem;color:var(--accent);margin:12px 0 22px}.notice{padding:15px;border-left:2px solid #e3b27c;color:#e3cdb2;background:#e3b27c08;font-size:.9rem}button,input,textarea,select{font:inherit}button{background:var(--panel);border:1px solid var(--border);color:inherit;border-radius:4px;min-height:44px;padding:10px 15px;cursor:pointer}button:hover{border-color:var(--accent)}button:disabled{opacity:.5;cursor:wait}button.primary{background:var(--accent);border-color:var(--accent);color:#102022}input,textarea,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:4px;background:#0a171b;color:inherit;font-size:1rem}input[type=checkbox]{width:auto;min-width:22px;height:22px}input[type=file]{padding:12px;max-width:100%}textarea{min-height:135px;resize:vertical}label{display:block;margin:13px 0 6px;font-size:.9rem}p{overflow-wrap:anywhere}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #efc898;outline-offset:3px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{padding:24px;border:1px solid var(--border);background:var(--panel);border-radius:6px;margin:18px 0}.panel p{color:var(--muted)}.panel .small,.small{font-size:.8rem;color:var(--muted)}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:15px 0}.row p{margin:0}.row .spacer{margin-left:auto}.panel button{margin-top:10px}.storage-status{color:var(--accent)!important;font-size:.85rem}.report{border-top:1px solid var(--border);padding:18px 0}.report h3{margin:0 0 6px;font-weight:500}.report blockquote{white-space:pre-wrap;overflow-wrap:anywhere;font:1.15rem/1.7 Georgia,serif;margin:15px 0}.note{border-left:2px solid #d3b285;padding-left:14px;font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere}.pick{display:flex;gap:12px;align-items:start;padding:12px;border:1px solid var(--border);border-radius:4px}.pick input{margin-top:4px;flex-shrink:0}.pick span{overflow-wrap:anywhere}pre{padding:16px;background:#0a171b;white-space:pre-wrap;overflow-wrap:anywhere;max-height:350px;overflow:auto;font-size:.8rem}.help{border-top:1px solid var(--border);padding:24px 0;margin-top:35px;color:var(--muted);font-size:.9rem}summary{cursor:pointer;min-height:44px;align-content:center}#status:not(:empty){padding:15px;border:1px solid #53736c;background:#102820;margin:20px 0;overflow-wrap:anywhere}#status.error{border-color:#965c67;background:#301c24}.actions{display:flex;gap:12px;flex-wrap:wrap}footer{border-top:1px solid var(--border);padding:24px 5vw;color:var(--muted);font-size:.8rem}[hidden]{display:none!important}@media(max-width:720px){.grid{grid-template-columns:1fr;gap:0}main{padding-top:24px}.panel{padding:18px}.row .spacer{margin-left:0}.actions button{width:100%}}
+</style></head><body>
+<header><span class="brand">◎ ONEIRIC NETWORK</span><span class="badge">Recovery rehearsal / local only</span></header>
+<main><p class="eyebrow">A place to keep the original</p><h1>Your private notebook.</h1><p class="lede">Write here. Decide what leaves.</p><p class="notice">Early prototype: use fictional test notes for this rehearsal. Security review and visual browser testing are still outstanding. Nothing is uploaded.</p>
+<div id="status" role="status" aria-live="polite"></div><div id="app"></div>
+<details class="help"><summary>What this version protects—and what it cannot recover</summary><p>Saved reports and backups are encrypted with your passphrase. Keep that passphrase separately: there is no reset or recovery service. Clearing browser storage can remove the local copy. A downloaded backup is not verified until you reopen it successfully.</p><p>Encryption protects stored data, not an unlocked screen or a compromised device. Open recovery files only in a trusted copy of this client. The portable identity in this rehearsal is an unsigned identifier, not a verified account or signing identity.</p><p>Use Lock when you leave. An unsaved draft exists only in the form. Closing or locking this page discards it after a warning where the browser supports one. Encrypted storage can also be unavailable for local files in some browsers; use a trusted HTTPS or localhost installation in that case.</p></details>
+</main><footer>Experience is admissible; interpretation remains open.</footer><script>'use strict';
+(()=>{
+// Recovery v1: encrypted local notebook, not an authentication or signing protocol.
+const FORMAT='oneiric-notebook-backup', VERSION=1, ITERATIONS=600000;
+const LIMIT=8*1024*1024, MAX_REPORTS=500;
+const enc=new TextEncoder(), dec=new TextDecoder('utf-8',{fatal:true});
+const aad=enc.encode('oneiric:notebook-backup:1');
+const fail=message=>{throw new Error(message);};
+const exact=(value,keys)=>{if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).sort().join(',')!==[...keys].sort().join(','))fail('Unexpected fields or unsupported format.');};
+const string=(s,max)=>{if(typeof s!=='string'||!s.trim()||s.length>max)fail('Invalid text field.');for(const c of s){const cp=c.codePointAt(0);if(cp>=0xd800&&cp<=0xdfff)fail('Text contains an invalid Unicode surrogate.');}};
+const uuid=s=>{if(typeof s!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(s))fail('Invalid identifier.');};
+const time=s=>{if(typeof s!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(s)||!Number.isFinite(Date.parse(s))||new Date(s).toISOString()!==s)fail('Invalid timestamp.');};
+function validateNotebook(v){
+ exact(v,['format','version','identity','revision','reports']);
+ if(v.format!=='oneiric-notebook'||v.version!==VERSION)fail('Unsupported notebook version.');
+ exact(v.identity,['id','handle']);uuid(v.identity.id);string(v.identity.handle,80);
+ if(!Number.isSafeInteger(v.revision)||v.revision<0||!Array.isArray(v.reports)||v.reports.length>MAX_REPORTS)fail('Invalid notebook size or revision.');
+ const ids=new Set([v.identity.id]);
+ const unique=id=>{uuid(id);if(ids.has(id))fail('Duplicate identifier.');ids.add(id);};
+ for(const r of v.reports){
+  exact(r,['id','created_at','title','text','annotations']);unique(r.id);time(r.created_at);string(r.title,200);string(r.text,100000);
+  if(!Array.isArray(r.annotations)||r.annotations.length>100)fail('Too many annotations.');
+  for(const a of r.annotations){exact(a,['id','created_at','text']);unique(a.id);time(a.created_at);string(a.text,20000);if(a.created_at<r.created_at)fail('Annotation predates report.');}
+ }
+ if(enc.encode(JSON.stringify(v)).length>4*1024*1024)fail('Notebook exceeds the 4 MiB rehearsal limit.');
+ return v;
+}
+function createNotebook(handle){return validateNotebook({format:'oneiric-notebook',version:VERSION,identity:{id:crypto.randomUUID(),handle:handle.trim()},revision:0,reports:[]});}
+function appendReport(v,title,text){
+ const next=structuredClone(v);next.reports.push({id:crypto.randomUUID(),created_at:new Date().toISOString(),title:title.trim(),text,annotations:[]});next.revision++;
+ return validateNotebook(next);
+}
+function appendAnnotation(v,id,text){
+ const next=structuredClone(v),report=next.reports.find(r=>r.id===id);if(!report)fail('Report not found.');
+ report.annotations.push({id:crypto.randomUUID(),created_at:new Date().toISOString(),text});next.revision++;
+ return validateNotebook(next);
+}
+const b64=bytes=>{let s='';for(const b of bytes)s+=String.fromCharCode(b);return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');};
+const un64=(s,length)=>{
+ if(typeof s!=='string'||!s.length||s.length>LIMIT||!/^[A-Za-z0-9_-]+$/.test(s))fail('Invalid backup encoding.');
+ let raw;try{raw=atob(s.replace(/-/g,'+').replace(/_/g,'/'));}catch{fail('Invalid backup encoding.');}
+ const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
+ if((length&&bytes.length!==length)||b64(bytes)!==s)fail('Invalid backup encoding.');return bytes;
+};
+function parseBackup(raw){
+ if(typeof raw!=='string'||enc.encode(raw).length>LIMIT)fail('Backup exceeds the 8 MiB limit.');
+ let e;try{e=JSON.parse(raw);}catch{fail('Backup is not valid JSON.');}
+ exact(e,['format','version','kdf','cipher','salt','iv','ciphertext']);
+ if(e.format!==FORMAT||e.version!==VERSION||e.kdf!=='PBKDF2-SHA256-600000'||e.cipher!=='AES-256-GCM')fail('Unsupported backup format.');
+ un64(e.salt,16);un64(e.iv,12);if(un64(e.ciphertext).length<16)fail('Truncated backup.');return e;
+}
+async function derive(password,salt){
+ string(password,1024);
+ if(!crypto.subtle)fail('This browser needs a secure context for encryption.');
+ const material=await crypto.subtle.importKey('raw',enc.encode(password),'PBKDF2',false,['deriveKey']);
+ return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:ITERATIONS,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+async function encryptNotebook(v,password){
+ validateNotebook(v);if(typeof password!=='string'||password.length<12||password.length>1024)fail('Use a passphrase of 12–1024 characters.');
+ const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+ const key=await derive(password,salt);
+ const ciphertext=await crypto.subtle.encrypt({name:'AES-GCM',iv,additionalData:aad,tagLength:128},key,enc.encode(JSON.stringify(v)));
+ return JSON.stringify({format:FORMAT,version:VERSION,kdf:'PBKDF2-SHA256-600000',cipher:'AES-256-GCM',salt:b64(salt),iv:b64(iv),ciphertext:b64(new Uint8Array(ciphertext))});
+}
+async function decryptNotebook(raw,password){
+ const e=parseBackup(raw),key=await derive(password,un64(e.salt,16));let plaintext;
+ try{plaintext=await crypto.subtle.decrypt({name:'AES-GCM',iv:un64(e.iv,12),additionalData:aad,tagLength:128},key,un64(e.ciphertext));}
+ catch{fail('Unable to unlock: incorrect passphrase or damaged backup.');}
+ return validateNotebook(JSON.parse(dec.decode(plaintext)));
+}
+function createPublicSnapshot(v,reportIds,publicHandle){
+ validateNotebook(v);string(publicHandle,80);
+ if(!Array.isArray(reportIds)||!reportIds.length||new Set(reportIds).size!==reportIds.length)fail('Select at least one distinct report.');
+ const reports=reportIds.map(id=>{const r=v.reports.find(r=>r.id===id);if(!r)fail('Selected report not found.');return r;});
+ const now=new Date().toISOString();
+ const event=(kind,data,created_at=now)=>({header:{schema_version:'0.1.0',event_id:crypto.randomUUID(),author_id:v.identity.id,created_at,visibility:'public',references:[]},payload:{kind,data}});
+ return {format:'oneiric-network-bundle',schema_version:'0.1.0',exported_at:now,scope:'public',events:[event('presence',{participant_id:v.identity.id,handle:publicHandle.trim()}),...reports.map(r=>event('dream',{text:r.text,language:'und'},r.created_at))],omitted_event_ids:[]};
+}
+function validatePublicSnapshot(b){
+ exact(b,['format','schema_version','exported_at','scope','events','omitted_event_ids']);time(b.exported_at);
+ if(b.format!=='oneiric-network-bundle'||b.schema_version!=='0.1.0'||b.scope!=='public'||!Array.isArray(b.events)||b.events.length<2||b.events.length>501||!Array.isArray(b.omitted_event_ids)||b.omitted_event_ids.length)fail('Unsupported publication snapshot.');
+ let author;const ids=new Set();
+ b.events.forEach((e,i)=>{
+  exact(e,['header','payload']);exact(e.header,['schema_version','event_id','author_id','created_at','visibility','references']);exact(e.payload,['kind','data']);
+  const h=e.header;uuid(h.event_id);uuid(h.author_id);time(h.created_at);
+  if(ids.has(h.event_id))fail('Duplicate public event.');ids.add(h.event_id);
+  if(h.schema_version!=='0.1.0'||h.visibility!=='public'||!Array.isArray(h.references)||h.references.length)fail('Invalid public envelope.');
+  if(i===0){if(e.payload.kind!=='presence')fail('Missing public presence.');exact(e.payload.data,['participant_id','handle']);uuid(e.payload.data.participant_id);string(e.payload.data.handle,80);author=e.payload.data.participant_id;}
+  else{if(e.payload.kind!=='dream')fail('This reader accepts original reports only.');exact(e.payload.data,['text','language']);string(e.payload.data.text,100000);if(e.payload.data.language!=='und')fail('Unsupported snapshot language field.');}
+  if(h.author_id!==author)fail('Inconsistent snapshot author.');
+ });return b;
+}
+function parsePublicSnapshot(raw){if(typeof raw!=='string'||enc.encode(raw).length>LIMIT)fail('Snapshot exceeds the 8 MiB limit.');return validatePublicSnapshot(JSON.parse(raw));}
+const htmlEscape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function publicSnapshotHTML(snapshot){
+ validatePublicSnapshot(snapshot);const handle=snapshot.events[0].payload.data.handle;
+ return `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Oneiric Network — public selection</title><style>body{background:#0b1418;color:#e7eeea;font:18px/1.7 system-ui,sans-serif;max-width:760px;margin:auto;padding:32px}h1{font-family:Georgia,serif;font-weight:400}article{border-top:1px solid #40545b;margin-top:30px;padding-top:20px}p{white-space:pre-wrap;overflow-wrap:anywhere}small{color:#afc8c9}</style><h1>A public selection</h1><p>Published name: ${htmlEscape(handle)}</p><small>Unsigned reports selected by the notebook owner. No verified timing or experimental claims.</small>${snapshot.events.slice(1).map((e,i)=>`<article><h2>Report ${i+1}</h2><small>${htmlEscape(e.header.created_at)} · author-reported time</small><p>${htmlEscape(e.payload.data.text)}</p></article>`).join('')}<footer><p>Private titles and annotations are not included. Public copies cannot be recalled from other holders.</p></footer></html>`;
+}
+
+// Atomic compare-and-swap avoids overwriting changes from another tab.
+function openNotebookStore(indexedDB,name='oneiric-private-notebook-v1'){
+ return new Promise((resolve,reject)=>{
+  if(!indexedDB){reject(new Error('Local storage unavailable. Your notebook has not been saved.'));return;}
+  const request=indexedDB.open(name,1);
+  request.onupgradeneeded=()=>request.result.createObjectStore('encrypted');
+  request.onerror=()=>reject(new Error('Cannot open local encrypted storage.'));
+  request.onblocked=()=>reject(new Error('Close other notebook tabs and try again.'));
+  request.onsuccess=()=>{
+   const db=request.result;db.onversionchange=()=>db.close();
+   resolve({
+    read:()=>new Promise((yes,no)=>{const tx=db.transaction('encrypted','readonly'),get=tx.objectStore('encrypted').get('current');get.onsuccess=()=>yes(get.result??null);get.onerror=()=>no(get.error);}),
+    write:(expected,next)=>new Promise((yes,no)=>{
+     let conflict=false;const tx=db.transaction('encrypted','readwrite'),store=tx.objectStore('encrypted'),get=store.get('current');
+     get.onsuccess=()=>{if((get.result??null)!==expected){conflict=true;tx.abort();}else store.put(next,'current');};
+     tx.oncomplete=()=>yes();tx.onerror=()=>{};tx.onabort=()=>no(new Error(conflict?'Storage changed in another tab. Lock and unlock to reload; your current input has not been saved.':'Local save failed. Keep this page open and export your last saved backup.'));
+    }),close:()=>db.close()
+   });
+  };
+ });
+}
+
+const app=document.getElementById('app'),status=document.getElementById('status');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let store=null,stored=null,notebook=null,passphrase='',busy=false,preview=null,dirty=false,backupCheck='No backup verified in this session.';
+let drafts={title:'',text:'',annotation:'',report:''};
+const field=id=>document.getElementById(id);
+function message(text,error=false){status.textContent=text;status.classList.toggle('error',error);status.setAttribute('role',error?'alert':'status');}
+function download(name,text,type='application/json'){
+ const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+async function fileText(id){const file=field(id).files[0];if(!file)throw new Error('Choose a file first.');if(file.size>8*1024*1024)throw new Error('File exceeds the 8 MiB limit.');return file.text();}
+async function action(fn){if(busy)return;busy=true;const controls=[...app.querySelectorAll('button,input,textarea,select')].map(el=>[el,el.disabled]);controls.forEach(([el])=>el.disabled=true);try{await fn();}catch(e){message(e.message||'Operation failed. Nothing was changed.',true);}finally{busy=false;controls.forEach(([el,disabled])=>el.disabled=disabled);}}
+function bind(id,fn){field(id)?.addEventListener('submit',e=>{e.preventDefault();action(fn);});}
+async function persist(next,password=passphrase){
+ const encrypted=await encryptNotebook(next,password);await store.write(stored,encrypted);
+ stored=encrypted;notebook=next;passphrase=password;preview=null;backupCheck='This revision has not been verified against a downloaded backup.';
+}
+function readerMarkup(){return `<section class="panel"><h2>Read a public snapshot</h2><p>This opens selected public reports without importing them into your notebook.</p><form id="reader-form"><label for="public-file">Public selection (.json)</label><input id="public-file" type="file" accept=".json,application/json" required><button>Open public selection</button></form><div id="public-reader"></div></section>`;}
+function render(){
+ if(!store){app.innerHTML='<p>Opening encrypted local storage…</p>';return;}
+ if(!notebook){
+  app.innerHTML=`<div class="grid"><section class="panel"><h2>${stored?'Unlock this notebook':'Create a notebook'}</h2><p>${stored?'An encrypted notebook is saved in this browser.':'Use a made-up name and fictional notes while testing recovery.'}</p><form id="entry-form">${stored?'':'<label for="handle">Notebook name</label><input id="handle" maxlength="80" required autocomplete="off">'}<label for="password">Passphrase</label><input id="password" type="password" minlength="12" maxlength="1024" autocomplete="off" required>${stored?'':'<label for="confirm-password">Repeat passphrase</label><input id="confirm-password" type="password" minlength="12" maxlength="1024" autocomplete="off" required><p class="small">Use a long, unique passphrase and keep it separately. No reset service exists.</p>'}<button class="primary">${stored?'Unlock':'Create encrypted notebook'}</button></form></section><section class="panel"><h2>Restore on this installation</h2><p>${stored?'A notebook already exists here. Restoration is available only in an empty installation, so it cannot overwrite your work.':'Restore an encrypted backup without contacting the original installation.'}</p>${stored?'':`<form id="restore-form"><label for="backup-file">Encrypted backup (.json)</label><input id="backup-file" type="file" accept=".json,application/json" required><label for="restore-password">Backup passphrase</label><input id="restore-password" type="password" maxlength="1024" autocomplete="off" required><button>Restore encrypted backup</button></form>`}</section></div>${readerMarkup()}`;
+  bind('entry-form',async()=>{
+   const password=field('password').value;
+   if(stored){const current=await store.read();if(!current)throw new Error('Stored notebook is missing. Reload this page to restore a backup.');const v=await decryptNotebook(current,password);stored=current;notebook=v;passphrase=password;backupCheck='No backup verified in this session.';}
+   else{if(password!==field('confirm-password').value)throw new Error('Passphrases do not match.');await persist(createNotebook(field('handle').value),password);}
+   render();message('Notebook unlocked. Saved data stays encrypted in this browser.');
+  });
+  bind('restore-form',async()=>{
+   const raw=await fileText('backup-file'),password=field('restore-password').value;
+   const recovered=await decryptNotebook(raw,password);
+   await store.write(null,raw);stored=raw;notebook=recovered;passphrase=password;dirty=false;
+   backupCheck=`Restored and decrypted backup: revision ${recovered.revision}.`;
+   render();message('Recovery succeeded in this installation. No original service was contacted.');
+  });
+ }else{
+  app.innerHTML=`<section class="panel"><div class="row"><div><h2>${esc(notebook.identity.handle)}</h2><p class="storage-status">Saved encrypted on this device · revision ${notebook.revision}</p><p class="small">${esc(backupCheck)}</p></div><button id="lock" class="spacer">Lock notebook</button></div><div class="actions"><button id="backup">Download encrypted backup</button></div><form id="verify-form"><label for="verify-file">Verify your downloaded backup</label><input id="verify-file" type="file" accept=".json,application/json" required><button>Reopen and verify</button></form></section>
+  <div class="grid"><section class="panel"><h2>Record a dream</h2><form id="report-form"><label for="report-title">Private title</label><input id="report-title" maxlength="200" required autocomplete="off"><label for="report-text">Original report</label><textarea id="report-text" maxlength="100000" required></textarea><p class="small">Saving preserves the original text. Later interpretations are separate notes.</p><button class="primary">Save encrypted report</button></form></section><section class="panel"><h2>Add a later interpretation</h2><form id="annotation-form"><label for="annotation-report">Original report</label><select id="annotation-report" required>${notebook.reports.map(r=>`<option value="${r.id}">${esc(r.title)}</option>`).join('')}</select><label for="annotation-text">Private annotation</label><textarea id="annotation-text" maxlength="20000" required></textarea><button ${notebook.reports.length?'':'disabled'}>Save separate annotation</button></form></section></div>
+  <section class="panel"><h2>Originals and later notes</h2>${notebook.reports.map(r=>`<article class="report"><h3>${esc(r.title)}</h3><span class="small">${esc(r.created_at)}</span><blockquote>${esc(r.text)}</blockquote>${r.annotations.map(a=>`<p class="small">Later note · ${esc(a.created_at)}</p><p class="note">${esc(a.text)}</p>`).join('')}</article>`).join('')||'<p>No reports yet.</p>'}</section>
+  <section class="panel"><h2>Prepare a public selection</h2><p>Only selected original text, its recorded time, a public name and your portable author identifier will leave the notebook. Private titles and all annotations are excluded.</p><form id="preview-form"><label for="public-handle">Public name shown in the snapshot</label><input id="public-handle" maxlength="80" required autocomplete="off"><div>${notebook.reports.map(r=>`<label class="pick"><input type="checkbox" name="selection" value="${r.id}"><span>${esc(r.title)}<br><span class="small">Private title shown here for selection only</span></span></label>`).join('')}</div><button>Review exact public contents</button></form><div id="publication-preview"></div></section>${readerMarkup()}`;
+  field('report-title').value=drafts.title;field('report-text').value=drafts.text;field('annotation-text').value=drafts.annotation;
+  if(notebook.reports.some(r=>r.id===drafts.report))field('annotation-report').value=drafts.report;
+  dirty=Boolean(drafts.title||drafts.text||drafts.annotation);
+  bind('report-form',async()=>{await persist(appendReport(notebook,field('report-title').value,field('report-text').value));drafts.title='';drafts.text='';render();message('Original report saved encrypted. Download a fresh backup to protect this revision.');});
+  bind('annotation-form',async()=>{await persist(appendAnnotation(notebook,field('annotation-report').value,field('annotation-text').value));drafts.annotation='';render();message('Annotation saved separately. Original report unchanged.');});
+  field('backup').onclick=()=>action(async()=>{download(`oneiric-encrypted-backup-r${notebook.revision}.json`,stored);message('Backup download requested. Reopen the saved file below to verify it; this page cannot confirm the download reached disk.');});
+  bind('verify-form',async()=>{const recovered=await decryptNotebook(await fileText('verify-file'),passphrase);if(JSON.stringify(recovered)!==JSON.stringify(notebook))throw new Error('The backup unlocked, but it is not the current notebook revision. Keep it, and download a current backup.');backupCheck=`Downloaded backup verified against revision ${notebook.revision}.`;render();message(backupCheck);});
+  field('lock').onclick=()=>{if(dirty&&!confirm('Discard unsaved form text and lock? Saved reports are already encrypted.'))return;notebook=null;passphrase='';preview=null;dirty=false;drafts={title:'',text:'',annotation:'',report:''};render();message('Locked. Unlock with your passphrase or restore a backup on an empty installation.');};
+  bind('preview-form',async()=>{
+   const ids=[...app.querySelectorAll('input[name="selection"]:checked')].map(e=>e.value);preview=createPublicSnapshot(notebook,ids,field('public-handle').value);
+   field('publication-preview').innerHTML=`<h3>Exact public payload</h3><p class="small">${ids.length} selected ${ids.length===1?'report':'reports'}. Author identifier: ${esc(notebook.identity.id)}. These records are unsigned. Publishing this identifier can link separate public selections.</p><pre>${esc(JSON.stringify(preview,null,2))}</pre><label class="pick"><input id="publish-consent" type="checkbox"><span>I reviewed the text, times and author identifier. I understand public copies may persist.</span></label><div class="actions"><button id="download-public-json" type="button">Export public JSON</button><button id="download-public-html" type="button">Export readable public page</button></div><p class="small">These buttons download files only. Nothing is posted or uploaded.</p>`;
+   const exportPublic=html=>action(async()=>{if(!field('publish-consent').checked)throw new Error('Review the public contents and check the confirmation first.');download(html?'oneiric-public-selection.html':'oneiric-public-selection.json',html?publicSnapshotHTML(preview):JSON.stringify(preview,null,2),html?'text/html':'application/json');message('Public selection download requested. No private titles or annotations were included.');});
+   field('download-public-json').onclick=()=>exportPublic(false);field('download-public-html').onclick=()=>exportPublic(true);
+  });
+ }
+ bind('reader-form',async()=>{const b=parsePublicSnapshot(await fileText('public-file'));field('public-reader').innerHTML=`<h3>Public name: ${esc(b.events[0].payload.data.handle)}</h3><p class="small">Unsigned public snapshot · ${b.events.length-1} reports · no verified timing</p>${b.events.slice(1).map(e=>`<article class="report"><p class="small">${esc(e.header.created_at)}</p><blockquote>${esc(e.payload.data.text)}</blockquote></article>`).join('')}`;message('Public snapshot opened. Your private notebook was not changed.');});
+}
+app.addEventListener('input',event=>{
+ if(event.target.closest('#report-form,#annotation-form')){drafts={title:field('report-title').value,text:field('report-text').value,annotation:field('annotation-text').value,report:field('annotation-report').value};dirty=Boolean(drafts.title||drafts.text||drafts.annotation);}
+ if(event.target.closest('#preview-form')){preview=null;const target=field('publication-preview');if(target)target.replaceChildren();}
+});
+window.addEventListener('beforeunload',event=>{if(dirty||busy){event.preventDefault();event.returnValue='';}});
+window.addEventListener('pagehide',()=>{notebook=null;passphrase='';preview=null;dirty=false;drafts={title:'',text:'',annotation:'',report:''};app.replaceChildren();});
+window.addEventListener('pageshow',event=>{if(event.persisted)location.reload();});
+async function start(){try{if(!crypto.subtle)throw new Error('Encryption is unavailable here. Open a trusted copy using HTTPS or localhost. No plaintext notebook will be stored.');store=await openNotebookStore(window.indexedDB);stored=await store.read();render();}catch(e){app.innerHTML=readerMarkup();message(e.message,true);bind('reader-form',async()=>{const b=parsePublicSnapshot(await fileText('public-file'));field('public-reader').textContent=b.events.slice(1).map(e=>e.payload.data.text).join('\n\n');});}}
+start();
+
+})();</script></body></html>
