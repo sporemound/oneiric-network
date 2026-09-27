@@ -1,7 +1,7 @@
 # Oneiric Network
 
 An independent public art/research project for dream cartography and blinded
-convergence experiments. Working name; initial development is private.
+convergence experiments. Working name.
 
 **Experience is admissible; interpretation remains open.**
 
