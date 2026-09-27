@@ -1,0 +1,152 @@
+{
+  "synthetic": true,
+  "places": {
+    "ac1aca2a-9715-5fad-8a30-dfc16a89f4fc": {
+      "x": 200,
+      "y": 180,
+      "short": "The dry harbor"
+    },
+    "50f85b48-0259-5847-afeb-2e696c5c6a2f": {
+      "x": 555,
+      "y": 180,
+      "short": "The rain station"
+    },
+    "1b2932ca-050e-557f-8bd0-f1157c6fbf71": {
+      "x": 175,
+      "y": 440,
+      "short": "Pacific shore"
+    },
+    "caf0484f-a8a8-58e0-8229-38283ceb20e9": {
+      "x": 445,
+      "y": 445,
+      "short": "The infinite library"
+    },
+    "0de74e69-15e9-5391-a634-9bc96e291b8e": {
+      "x": 685,
+      "y": 440,
+      "short": "The ceiling orchard"
+    }
+  },
+  "dreams": {
+    "c645f14d-8ce3-55e5-9739-10059036c5d2": {
+      "title": "Blue stairs",
+      "code": "D01",
+      "x": 95,
+      "y": 90
+    },
+    "3dfc504d-3c48-5881-be80-dd075cd296ce": {
+      "title": "Boats without water",
+      "code": "D02",
+      "x": 325,
+      "y": 95
+    },
+    "400874dd-51ba-540c-8a84-c0e2124cbff0": {
+      "title": "The flooded landing",
+      "code": "D03",
+      "x": 85,
+      "y": 240
+    },
+    "19d6516a-6e57-5ffe-ac8c-a6775b32c2e8": {
+      "title": "Windows over the basin",
+      "code": "D04",
+      "x": 325,
+      "y": 260
+    },
+    "f939eb93-1758-589b-89bd-9f8e68c4d138": {
+      "title": "Rain between platforms",
+      "code": "D05",
+      "x": 445,
+      "y": 80
+    },
+    "9e70e280-b885-592f-91db-d240d0c16009": {
+      "title": "The silent train",
+      "code": "D06",
+      "x": 675,
+      "y": 90
+    },
+    "131ec6c8-fa6a-5fc4-aa1a-28813ca10338": {
+      "title": "An entirely dry station",
+      "code": "D07",
+      "x": 435,
+      "y": 270
+    },
+    "21bd4c4b-4776-5087-ae6a-9aaade0cf344": {
+      "title": "A ticket made of leaves",
+      "code": "D08",
+      "x": 680,
+      "y": 260
+    },
+    "6077b1b2-0351-549c-af02-506794018058": {
+      "title": "A familiar shoreline",
+      "code": "D09",
+      "x": 65,
+      "y": 355
+    },
+    "fcf382e0-3137-53d2-aa3e-bb8f541fa25f": {
+      "title": "Stones at low tide",
+      "code": "D10",
+      "x": 280,
+      "y": 360
+    },
+    "301b2a68-514f-50ed-812e-27c7026a2579": {
+      "title": "The inland sea",
+      "code": "D11",
+      "x": 80,
+      "y": 535
+    },
+    "9d6e3050-500d-54f6-ad96-06348de18b03": {
+      "title": "The repeating room",
+      "code": "D12",
+      "x": 365,
+      "y": 355
+    },
+    "61ae80d2-8a8c-5424-b2b2-6dc9e0bcfc3a": {
+      "title": "Books filled with weather",
+      "code": "D13",
+      "x": 550,
+      "y": 355
+    },
+    "c4d4620a-0be5-5efc-a627-1c59d223f6d6": {
+      "title": "The last room",
+      "code": "D14",
+      "x": 370,
+      "y": 550
+    },
+    "74501830-d58b-5651-962b-12ddea5161b0": {
+      "title": "Roots in plaster",
+      "code": "D15",
+      "x": 630,
+      "y": 345
+    },
+    "a4122280-9043-533b-b727-a973229bd347": {
+      "title": "The upright orchard",
+      "code": "D16",
+      "x": 780,
+      "y": 350
+    },
+    "d20e979a-6d12-5c17-9474-c47e9c8d3b1b": {
+      "title": "An apple above the bed",
+      "code": "D17",
+      "x": 760,
+      "y": 535
+    },
+    "2cf25f55-6296-59f0-b892-7b230157bfd1": {
+      "title": "A telephone under snow",
+      "code": "D18",
+      "x": 240,
+      "y": 635
+    },
+    "ed70f337-b63a-570b-ae75-052c5bb72fa0": {
+      "title": "Only a color",
+      "code": "D19",
+      "x": 460,
+      "y": 635
+    },
+    "964e4140-4b8b-51b1-b3ce-2f9e69ed9ab9": {
+      "title": "No scene recalled",
+      "code": "D20",
+      "x": 680,
+      "y": 635
+    }
+  }
+}

@@ -7,10 +7,21 @@ convergence experiments. Working name; initial development is private.
 
 ## Current milestone
 
-Portable data contract **0.1.0 draft**: JSON Schema, synthetic examples, an
-offline structural/relationship validator, and architecture notes. No hosted
+An offline **Network / Atlas miniature world** built on portable data contract
+**0.1.0 draft**: JSON Schema, synthetic examples, an offline
+structural/relationship validator, and architecture notes. No hosted
 service, authentication implementation, cryptographic verification, or public
 participant intake exists yet. A schema-valid record is not verified evidence.
+
+## Explore the miniature world
+
+Open [`apps/web/index.html`](apps/web/index.html) in your browser. The checked-in
+file runs offline: 20 fictional reports, five places, inspectable connections,
+contradictions and a five-day chronology. Download the file or repository first;
+GitHub's source viewer does not run the page.
+
+See [`docs/MINIATURE_WORLD.md`](docs/MINIATURE_WORLD.md) for scope and rebuilding.
+This is synthetic material only, with no participant intake or hosted service.
 
 ## Validate locally
 
@@ -23,6 +34,7 @@ python -m venv .venv
 python -m pip install -r requirements-dev.txt
 python tools/validate.py examples/synthetic-bundle.json
 python -m unittest discover -s tests -v
+node --test tests/test_projection.mjs
 ```
 
 Validation performs no network requests. Installation needs package access once.
@@ -38,6 +50,7 @@ Validation performs no network requests. Installation needs package access once.
 | `docs/IDENTITY_PRIVACY.md` | Authentication, recovery and privacy design |
 | `docs/PROJECT_CONTEXT.md` | Supplied authoritative project brief |
 | `examples/` | Synthetic records only |
+| `apps/web/` | Offline Network / Atlas prototype and display projection |
 
 ## Constraints
 

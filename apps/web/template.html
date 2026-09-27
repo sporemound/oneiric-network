@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oneiric Network — miniature world</title>
+<meta name="description" content="Explore a synthetic dream atlas. Inspect original reports, later associations, and contradictory descriptions.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c171b'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%2393d4cb'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%2393d4cb'/%3E%3C/svg%3E">
+<style>/* STYLES */</style>
+</head>
+<body>
+<a class="skip" href="#workspace">Skip to the atlas</a>
+<header class="masthead"><div class="identity"><span class="seal" aria-hidden="true">◎</span><div><strong>ONEIRIC NETWORK</strong><span class="caption">Field study 001 / a miniature world</span></div></div><span class="synthetic">All reports are invented</span></header>
+<main id="workspace">
+<section class="opening"><div><p class="eyebrow">A collective atlas of the not-quite-familiar</p><h1>Places we almost remember.</h1></div><p class="intro">Twenty fictional dreams. Five places.<br>Follow a thread. Keep the differences.</p></section>
+<div class="toolbar"><div class="view-controls" role="group" aria-label="View"><button id="network-button" aria-pressed="true">Network</button><button id="atlas-button" aria-pressed="false">Atlas</button></div><p id="counts" aria-live="polite"></p><button id="about-button" class="quiet" aria-expanded="false" aria-controls="about">About this study</button></div>
+<section id="about" class="about" hidden><h2>Experience is admissible; interpretation remains open.</h2><p>This is a designed miniature world, not participant research. Every presence, report and apparent correspondence is fictional. Connections are attributed interpretations; distance on the map has no evidentiary meaning.</p><p>No targets, controls, verified timestamps or statistical evidence are present. “Real” describes a place category, not a real participant report. This prototype collects nothing and makes no network requests.</p></section>
+<div class="workspace"><section class="field" aria-label="Dream exploration">
+<div class="field-heading"><div><span class="eyebrow" id="field-kicker">01 / Network</span><h2 id="field-title">An unfinished geography</h2></div><p id="field-hint">Select a circle or a connecting line.</p></div>
+<div id="network-view"><div class="graph-scroll" aria-label="Scrollable network map"><div id="graph"><svg id="edges" viewBox="0 0 860 720" aria-label="Connections between reports and places"></svg><div id="nodes"></div><span class="unassigned-label">REPORTS WITHOUT A PLACE ASSOCIATION</span></div></div><p class="mobile-hint">Swipe horizontally to explore the whole map, or choose a report below.</p></div>
+<div id="atlas-view" hidden><div id="atlas-grid"></div></div>
+<div class="legend"><span><i class="line supports"></i>Attributed resemblance</span><span><i class="line contradicts"></i>Contradiction</span><span><i class="line uncertain"></i>Uncertain association</span></div>
+<div class="chronology"><div class="time-heading"><label for="day">As recorded through <strong id="day-label">Day 5</strong></label><span id="time-note">Later interpretations are visible</span></div><input id="day" type="range" min="1" max="5" step="1" value="5" aria-describedby="time-description"><div class="time-endpoints"><span>01 Sep · first reports</span><span>05 Sep · later associations</span></div><p id="time-description">Move backward to see reports before their later connections were added. Dates belong to the fictional chronology.</p></div>
+</section>
+<aside id="detail" aria-label="Selected report or place"><div id="detail-content"></div></aside></div>
+<section class="archive"><div class="archive-heading"><div><p class="eyebrow">The original fragments</p><h2>Every report has a place here.</h2></div><span id="archive-note">Including the unconnected ones.</span></div><div id="report-list"></div></section>
+<footer><span>ONEIRIC NETWORK <span class="muted">/ Synthetic study 001</span></span><span>No scores. No inferred certainty.</span></footer>
+</main>
+<div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+<script id="world-data" type="application/json">/* WORLD */</script>
+<script id="layout-data" type="application/json">/* LAYOUT */</script>
+<script>/* SCRIPT */</script>
+</body></html>

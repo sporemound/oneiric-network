@@ -1,0 +1,1160 @@
+{
+  "format": "oneiric-network-bundle",
+  "schema_version": "0.1.0",
+  "exported_at": "2026-09-05T23:59:59Z",
+  "scope": "public",
+  "events": [
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "08037b38-02d2-5531-a99b-892de5d4b1e8",
+        "author_id": "5c38dd17-3401-5b3c-a75e-6349a2947a06",
+        "created_at": "2026-09-01T00:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "5c38dd17-3401-5b3c-a75e-6349a2947a06",
+          "handle": "tide",
+          "description": "Fictional presence in the synthetic miniature world."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "15c02ad6-766a-5c70-b8af-6ea262d4ddc8",
+        "author_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+        "created_at": "2026-09-01T00:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+          "handle": "moth",
+          "description": "Fictional presence in the synthetic miniature world."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "83577d4a-5df6-5e48-89bd-32cf60e056e3",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T00:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+          "handle": "curator",
+          "description": "Fictional presence in the synthetic miniature world."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "c61d6f45-e374-5bdb-a103-899718bd53ef",
+        "author_id": "b3419a47-ab39-519c-80a8-941bc9ca6fde",
+        "created_at": "2026-09-01T00:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "b3419a47-ab39-519c-80a8-941bc9ca6fde",
+          "handle": "orbit",
+          "description": "Fictional presence in the synthetic miniature world."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "d9862324-63c1-512e-a78a-c1dace8564ca",
+        "author_id": "90ccb567-7b37-5f37-8c55-31ade1ac42af",
+        "created_at": "2026-09-01T00:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "90ccb567-7b37-5f37-8c55-31ade1ac42af",
+          "handle": "reed",
+          "description": "Fictional presence in the synthetic miniature world."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "e987cf94-b447-5b43-a4e7-c6c78a1c1b38",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-01T00:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "presence",
+        "data": {
+          "participant_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+          "handle": "fern",
+          "description": "Fictional presence in the synthetic miniature world."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "6077b1b2-0351-549c-af02-506794018058",
+        "author_id": "5c38dd17-3401-5b3c-a75e-6349a2947a06",
+        "created_at": "2026-09-01T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I stood at the Pacific shoreline. The wet sand was black and I could hear traffic behind me. Everything felt ordinary until the waves stopped.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "74501830-d58b-5651-962b-12ddea5161b0",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-01T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I imagined an orchard growing from a ceiling before sleep. In the dream, roots broke through the plaster and apples hung beside the lamps.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "9d6e3050-500d-54f6-ad96-06348de18b03",
+        "author_id": "90ccb567-7b37-5f37-8c55-31ade1ac42af",
+        "created_at": "2026-09-01T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I dreamed of the infinite library from our invented story. Every door led back to the same reading room. The books had warm covers.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "c645f14d-8ce3-55e5-9739-10059036c5d2",
+        "author_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+        "created_at": "2026-09-01T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I walked down a blue stairway into a harbor inside a building. The basin was dry. Each boat rested on its own small wooden stand.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "f939eb93-1758-589b-89bd-9f8e68c4d138",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-01T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "Rain fell between two train platforms. The roof was unbroken. I held a ticket with the destination rubbed away.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "36514466-64c3-54d8-9c30-057648b5525d",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T10:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place",
+        "data": {
+          "place_id": "caf0484f-a8a8-58e0-8229-38283ceb20e9",
+          "name": "The infinite library",
+          "class": "fictional",
+          "description": "A shared fictional setting invented for this demonstration: a library with rooms that repeat indefinitely."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "b2e74d62-4322-5ce0-ab46-f8af351d7737",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T10:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place",
+        "data": {
+          "place_id": "0de74e69-15e9-5391-a634-9bc96e291b8e",
+          "name": "The ceiling orchard",
+          "class": "imagined",
+          "description": "An environment invented by the fictional presence fern: trees grow down from the ceiling."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "d20333f2-392f-55c5-aadc-870050d4d694",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T10:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place",
+        "data": {
+          "place_id": "1b2932ca-050e-557f-8bd0-f1157c6fbf71",
+          "name": "Pacific shore",
+          "class": "real",
+          "description": "A broad real-world referent, not a verified geographic match. These fictional reports do not identify a specific beach."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "2f4c2abd-6074-5612-8f0a-732c373ca7de",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "6077b1b2-0351-549c-af02-506794018058",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "d20333f2-392f-55c5-aadc-870050d4d694",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "1b2932ca-050e-557f-8bd0-f1157c6fbf71",
+          "source_event_id": "6077b1b2-0351-549c-af02-506794018058",
+          "dimension": "biome",
+          "value": "The report explicitly names the Pacific shoreline.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "3215072f-d7bf-5031-83a4-0efee196d6d5",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "74501830-d58b-5651-962b-12ddea5161b0",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "b2e74d62-4322-5ce0-ab46-f8af351d7737",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "0de74e69-15e9-5391-a634-9bc96e291b8e",
+          "source_event_id": "74501830-d58b-5651-962b-12ddea5161b0",
+          "dimension": "topology",
+          "value": "The participant describes deliberate pre-sleep imagination.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "6f4492f0-79b1-5867-be2e-a4fbdd7c52ba",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-01T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "9d6e3050-500d-54f6-ad96-06348de18b03",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "36514466-64c3-54d8-9c30-057648b5525d",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "caf0484f-a8a8-58e0-8229-38283ceb20e9",
+          "source_event_id": "9d6e3050-500d-54f6-ad96-06348de18b03",
+          "dimension": "architecture",
+          "value": "The report explicitly recalls the fictional library.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "2cf25f55-6296-59f0-b892-7b230157bfd1",
+        "author_id": "90ccb567-7b37-5f37-8c55-31ade1ac42af",
+        "created_at": "2026-09-02T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "A telephone rang beneath the snow. I dug with my hands but could never reach it. I woke before hearing a voice.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "3dfc504d-3c48-5881-be80-dd075cd296ce",
+        "author_id": "90ccb567-7b37-5f37-8c55-31ade1ac42af",
+        "created_at": "2026-09-02T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "There were boats in a tiled hall, but no water. I could hear a bell from somewhere beneath the floor. I never found the stairs.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "61ae80d2-8a8c-5424-b2b2-6dc9e0bcfc3a",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-02T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "In the infinite library, a book opened into a little patch of rain. I closed it quickly because I was worried about the other books.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "9e70e280-b885-592f-91db-d240d0c16009",
+        "author_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+        "created_at": "2026-09-02T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "A train arrived without a sound. The station floor was wet, though I did not see rain. I was waiting for someone whose face I had forgotten.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "fcf382e0-3137-53d2-aa3e-bb8f541fa25f",
+        "author_id": "b3419a47-ab39-519c-80a8-941bc9ca6fde",
+        "created_at": "2026-09-02T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I was on a Pacific beach looking for a stone with a hole in it. Each time I bent down, the sea seemed farther away.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "97b4df87-5038-5411-90c0-abe003303a8e",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T10:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place",
+        "data": {
+          "place_id": "50f85b48-0259-5847-afeb-2e696c5c6a2f",
+          "name": "The rain station",
+          "class": "emergent",
+          "description": "A provisional grouping around a station where the weather seems to enter the building. Neither a shared location nor independence is established."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "e6415667-5b4e-52b9-9791-a206d454210e",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T10:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "place",
+        "data": {
+          "place_id": "ac1aca2a-9715-5fad-8a30-dfc16a89f4fc",
+          "name": "The dry harbor",
+          "class": "emergent",
+          "description": "A provisional grouping around an indoor harbor and descending stairs. The records disagree about whether water is present."
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "41d74379-c644-5a91-98dd-5cb2edee0ff6",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "c645f14d-8ce3-55e5-9739-10059036c5d2",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "e6415667-5b4e-52b9-9791-a206d454210e",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "ac1aca2a-9715-5fad-8a30-dfc16a89f4fc",
+          "source_event_id": "c645f14d-8ce3-55e5-9739-10059036c5d2",
+          "dimension": "architecture",
+          "value": "Blue stairs lead into an indoor harbor.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "54b5208d-5805-59c7-a781-2544bb06e378",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "3dfc504d-3c48-5881-be80-dd075cd296ce",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "e6415667-5b4e-52b9-9791-a206d454210e",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "ac1aca2a-9715-5fad-8a30-dfc16a89f4fc",
+          "source_event_id": "3dfc504d-3c48-5881-be80-dd075cd296ce",
+          "dimension": "objects",
+          "value": "Boats on a dry floor; stairs not reported.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "860c9d85-9c26-5ff5-a37a-a790519b8246",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "fcf382e0-3137-53d2-aa3e-bb8f541fa25f",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "d20333f2-392f-55c5-aadc-870050d4d694",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "1b2932ca-050e-557f-8bd0-f1157c6fbf71",
+          "source_event_id": "fcf382e0-3137-53d2-aa3e-bb8f541fa25f",
+          "dimension": "objects",
+          "value": "A Pacific beach is named, but no exact site is identified.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "9583d17c-4015-5d32-bc78-7b3cc27cb02e",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "61ae80d2-8a8c-5424-b2b2-6dc9e0bcfc3a",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "36514466-64c3-54d8-9c30-057648b5525d",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "caf0484f-a8a8-58e0-8229-38283ceb20e9",
+          "source_event_id": "61ae80d2-8a8c-5424-b2b2-6dc9e0bcfc3a",
+          "dimension": "objects",
+          "value": "Named fictional setting; rain is also a common link to the station.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "d8fcb1d4-fbf0-5b62-b0bb-7ba0b1c0e8d3",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "9e70e280-b885-592f-91db-d240d0c16009",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "97b4df87-5038-5411-90c0-abe003303a8e",
+            "relation": "derived_from"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "50f85b48-0259-5847-afeb-2e696c5c6a2f",
+          "source_event_id": "9e70e280-b885-592f-91db-d240d0c16009",
+          "dimension": "sound",
+          "value": "Silence and a wet floor offer only a loose resemblance.",
+          "stance": "uncertain",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "fdf6d6fc-734e-5276-b722-9aefe620f0aa",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-02T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "f939eb93-1758-589b-89bd-9f8e68c4d138",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "97b4df87-5038-5411-90c0-abe003303a8e",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "50f85b48-0259-5847-afeb-2e696c5c6a2f",
+          "source_event_id": "f939eb93-1758-589b-89bd-9f8e68c4d138",
+          "dimension": "weather",
+          "value": "Rain falls beneath an intact station roof.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "131ec6c8-fa6a-5fc4-aa1a-28813ca10338",
+        "author_id": "90ccb567-7b37-5f37-8c55-31ade1ac42af",
+        "created_at": "2026-09-03T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "The train station was hot and completely dry. Someone told me to keep an umbrella open anyway. Dust collected on the tracks.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "400874dd-51ba-540c-8a84-c0e2124cbff0",
+        "author_id": "5c38dd17-3401-5b3c-a75e-6349a2947a06",
+        "created_at": "2026-09-03T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "At the foot of the blue stairs, the water reached my chest. A rowboat knocked against the handrail. There was daylight but no visible window.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "a4122280-9043-533b-b727-a973229bd347",
+        "author_id": "b3419a47-ab39-519c-80a8-941bc9ca6fde",
+        "created_at": "2026-09-03T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "The orchard was entirely ordinary. Trees grew out of the soil. One apple hovered above a branch, but nothing was upside down.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "ed70f337-b63a-570b-ae75-052c5bb72fa0",
+        "author_id": "b3419a47-ab39-519c-80a8-941bc9ca6fde",
+        "created_at": "2026-09-03T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "A flat red color. No room, no person, no story that I can remember.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "38960c1c-d858-57f2-b377-898c7cb9a18e",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-03T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "400874dd-51ba-540c-8a84-c0e2124cbff0",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "e6415667-5b4e-52b9-9791-a206d454210e",
+            "relation": "contradicts"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "ac1aca2a-9715-5fad-8a30-dfc16a89f4fc",
+          "source_event_id": "400874dd-51ba-540c-8a84-c0e2124cbff0",
+          "dimension": "topology",
+          "value": "A flooded basin conflicts with the dry-basin description.",
+          "stance": "contradicts",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "4274d063-d452-5363-9069-d2dc809645fe",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-03T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "a4122280-9043-533b-b727-a973229bd347",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "b2e74d62-4322-5ce0-ab46-f8af351d7737",
+            "relation": "contradicts"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "0de74e69-15e9-5391-a634-9bc96e291b8e",
+          "source_event_id": "a4122280-9043-533b-b727-a973229bd347",
+          "dimension": "topology",
+          "value": "Upright trees contradict the ceiling-orchard topology.",
+          "stance": "contradicts",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "905470f2-47b4-5fda-b1a5-acb5fc39e788",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-03T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "131ec6c8-fa6a-5fc4-aa1a-28813ca10338",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "97b4df87-5038-5411-90c0-abe003303a8e",
+            "relation": "contradicts"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "50f85b48-0259-5847-afeb-2e696c5c6a2f",
+          "source_event_id": "131ec6c8-fa6a-5fc4-aa1a-28813ca10338",
+          "dimension": "weather",
+          "value": "Heat and dry tracks conflict with the rain description.",
+          "stance": "contradicts",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "19d6516a-6e57-5ffe-ac8c-a6775b32c2e8",
+        "author_id": "b3419a47-ab39-519c-80a8-941bc9ca6fde",
+        "created_at": "2026-09-04T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "The empty harbor had tall open windows. Wind pushed paper tickets across its floor. There were no boats, just their outlines in dust.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-04T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I handed the conductor a leaf. Rain was falling inside the carriage. At the window I could see trees growing upside down.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "301b2a68-514f-50ed-812e-27c7026a2579",
+        "author_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+        "created_at": "2026-09-04T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I could see a beach through a kitchen doorway. There was no horizon; a wall stood just beyond the breaking waves. I did not recognize the coast.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "964e4140-4b8b-51b1-b3ce-2f9e69ed9ab9",
+        "author_id": "5c38dd17-3401-5b3c-a75e-6349a2947a06",
+        "created_at": "2026-09-04T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I remember waking with a feeling of urgency, but no scene or image remains.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "c4d4620a-0be5-5efc-a627-1c59d223f6d6",
+        "author_id": "5c38dd17-3401-5b3c-a75e-6349a2947a06",
+        "created_at": "2026-09-04T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "The library had an end. Behind its last shelf was a small garden and a locked gate. I was relieved that the corridors did not continue.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "d20e979a-6d12-5c17-9474-c47e9c8d3b1b",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-04T08:00:00Z",
+        "visibility": "public",
+        "references": []
+      },
+      "payload": {
+        "kind": "dream",
+        "data": {
+          "text": "I woke within the dream and saw an apple above my bed. It was attached to the ceiling by a thin root. I remembered the orchard I had imagined.",
+          "language": "en"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "194cd3a7-ba2a-563a-8c14-4f959474f5d4",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-04T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "301b2a68-514f-50ed-812e-27c7026a2579",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "d20333f2-392f-55c5-aadc-870050d4d694",
+            "relation": "derived_from"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "1b2932ca-050e-557f-8bd0-f1157c6fbf71",
+          "source_event_id": "301b2a68-514f-50ed-812e-27c7026a2579",
+          "dimension": "topology",
+          "value": "Beach imagery alone does not identify the Pacific.",
+          "stance": "uncertain",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "901cb743-e158-51be-a586-30d8d042e6c6",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-04T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "97b4df87-5038-5411-90c0-abe003303a8e",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "50f85b48-0259-5847-afeb-2e696c5c6a2f",
+          "source_event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+          "dimension": "weather",
+          "value": "Indoor rain resembles the station reports; it may be a broad motif.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "9426117e-389b-5a1b-a359-f81c56d0e75a",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-04T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "c4d4620a-0be5-5efc-a627-1c59d223f6d6",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "36514466-64c3-54d8-9c30-057648b5525d",
+            "relation": "contradicts"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "caf0484f-a8a8-58e0-8229-38283ceb20e9",
+          "source_event_id": "c4d4620a-0be5-5efc-a627-1c59d223f6d6",
+          "dimension": "topology",
+          "value": "A finite ending conflicts with the repeating-room description.",
+          "stance": "contradicts",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "97cae9a2-c44b-557a-b549-5c853f19dbd2",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-04T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "19d6516a-6e57-5ffe-ac8c-a6775b32c2e8",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "e6415667-5b4e-52b9-9791-a206d454210e",
+            "relation": "derived_from"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "ac1aca2a-9715-5fad-8a30-dfc16a89f4fc",
+          "source_event_id": "19d6516a-6e57-5ffe-ac8c-a6775b32c2e8",
+          "dimension": "architecture",
+          "value": "Open windows and absent boats complicate the proposed grouping.",
+          "stance": "uncertain",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "ee0227d9-b421-570b-9576-5b7528ec33cf",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-04T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "d20e979a-6d12-5c17-9474-c47e9c8d3b1b",
+            "relation": "derived_from"
+          },
+          {
+            "event_id": "b2e74d62-4322-5ce0-ab46-f8af351d7737",
+            "relation": "supports"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "0de74e69-15e9-5391-a634-9bc96e291b8e",
+          "source_event_id": "d20e979a-6d12-5c17-9474-c47e9c8d3b1b",
+          "dimension": "objects",
+          "value": "Explicit recollection of the participant’s imagined orchard.",
+          "stance": "supports",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "7537484e-823b-5768-ace7-a20ae7f62fc7",
+        "author_id": "edcdf1bf-93bc-5ec7-9c45-de36a9d53e85",
+        "created_at": "2026-09-05T08:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+            "relation": "annotates"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "annotation",
+        "data": {
+          "subject_event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+          "layer": "interpretation",
+          "text": "The upside-down trees also remind me of my ceiling orchard. The association is mine and was added after the report.",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "986de97f-ef96-5d8a-a9d4-f965bd279874",
+        "author_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+        "created_at": "2026-09-05T08:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "c645f14d-8ce3-55e5-9739-10059036c5d2",
+            "relation": "annotates"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "annotation",
+        "data": {
+          "subject_event_id": "c645f14d-8ce3-55e5-9739-10059036c5d2",
+          "layer": "interpretation",
+          "text": "After reading the flooded-landing report, I began to wonder whether my dry basin could have held water. That thought was not in my original report.",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "beeaf243-2bd9-57d4-8f43-35f1514e2162",
+        "author_id": "1c7b92d0-5f6b-5cbe-bf33-f4287ae828cd",
+        "created_at": "2026-09-05T08:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "9e70e280-b885-592f-91db-d240d0c16009",
+            "relation": "annotates"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "annotation",
+        "data": {
+          "subject_event_id": "9e70e280-b885-592f-91db-d240d0c16009",
+          "layer": "interpretation",
+          "text": "I had read the rain-station description before this dream. Its wet floor should not be treated as an independent correspondence.",
+          "exposure": "unknown"
+        }
+      }
+    },
+    {
+      "header": {
+        "schema_version": "0.1.0",
+        "event_id": "cd517876-24f3-5297-8b6e-e6f42de73cb3",
+        "author_id": "cf218c39-fdc8-5c91-b3c7-1994e5fc0de0",
+        "created_at": "2026-09-05T12:00:00Z",
+        "visibility": "public",
+        "references": [
+          {
+            "event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+            "relation": "derived_from"
+          }
+        ]
+      },
+      "payload": {
+        "kind": "place_observation",
+        "data": {
+          "place_id": "0de74e69-15e9-5391-a634-9bc96e291b8e",
+          "source_event_id": "21bd4c4b-4776-5087-ae6a-9aaade0cf344",
+          "dimension": "topology",
+          "value": "Upside-down trees suggest a second, later association with the ceiling orchard.",
+          "stance": "uncertain",
+          "exposure": "unknown"
+        }
+      }
+    }
+  ],
+  "omitted_event_ids": []
+}
